@@ -1,3 +1,13 @@
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  $to = "chloejobin.1@gmail.com";
+  $from = $_POST['email'];
+  $subject = $_POST['subject'];
+  $message = $_POST['message'];
+  mail($to,$subject,$message);
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,11 +136,11 @@
           Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
         </p>
       </div>
-      <form>
-        <input type="email" placeholder="Votre courriel">
-        <input type="text" placeholder="Sujet">
-        <textarea placeholder="Message"></textarea>
-        <input type="submit" value="Envoyer">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <input type="email" placeholder="Votre courriel" name="email">
+        <input type="text" placeholder="Sujet" name="subject">
+        <textarea placeholder="Message" name="message"></textarea>
+        <input type="submit" value="Envoyer" name="submit">
       </form>
     </div>
     <p class="copyright">&copy; Apollo Project</p>
